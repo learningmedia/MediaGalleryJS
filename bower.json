@@ -1,0 +1,30 @@
+{
+  "name": "MediaGalleryJS",
+  "version": "1.0.0",
+  "description": "Storage-agnostic audio gallery library",
+  "homepage": "https://github.com/learningmedia/MediaGalleryJS",
+  "authors": [
+    "Andreas Helmberger <public@ahelmberger.de> (http://ahelmberger.de)",
+    "Ulrich Kaiser <ulrich.kaiser@hmtm.de> (http://kaiser-ulrich.de)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/learningmedia/MediaGalleryJS.git"
+  },
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "audio",
+    "gallery"
+  ],
+  "license": "MIT",
+  "main": "media-gallery.js",
+  "ignore": [
+    "**/.*",
+    "media",
+    "lib",
+    "logo",
+    "examples.*"
+  ]
+}
