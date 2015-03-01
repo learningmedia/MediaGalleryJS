@@ -3,28 +3,24 @@
   "version": "1.0.0",
   "description": "Storage-agnostic media gallery library",
   "homepage": "https://github.com/learningmedia/MediaGalleryJS",
-  "authors": [
+  "contributors": [
     "Andreas Helmberger <public@ahelmberger.de> (http://ahelmberger.de)",
     "Ulrich Kaiser <ulrich.kaiser@hmtm.de> (http://kaiser-ulrich.de)"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/learningmedia/MediaGalleryJS.git"
+    "url": "https://github.com/lerningmedia/MediaGalleryJS.git"
   },
-  "moduleType": [
-    "es6"
-  ],
   "keywords": [
     "media",
     "gallery"
   ],
   "license": "MIT",
-  "main": "media-gallery.js",
-  "ignore": [
-    "**/.*",
-    "media",
-    "lib",
-    "logo",
-    "examples.*"
-  ]
+  "devDependencies": {
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-spec-reporter": "0.0.16"
+  }
 }
