@@ -10,7 +10,7 @@ describe('In media gallery', () => {
     beforeEach(() => {
       mediaGallery.save('somefile1.mp3', createRandomArrayBuffer(32));
       mediaGallery.save('somefile2.mp3', createRandomArrayBuffer(32));
-      count = mediaGallery.count;
+      count = mediaGallery.count();
     });
     it('should return 2', () => {
       expect(count).toBe(2);
@@ -23,7 +23,7 @@ describe('In media gallery', () => {
       mediaGallery.save('somefile1.mp3', createRandomArrayBuffer(32));
       mediaGallery.save('somefile2.mp3', createRandomArrayBuffer(32));
       mediaGallery.clear();
-      count = mediaGallery.count;
+      count = mediaGallery.count();
     });
     it('should have a count of 0', () => {
       expect(count).toBe(0);

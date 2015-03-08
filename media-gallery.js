@@ -12,11 +12,13 @@ function clear() {
   hashtable.clear();
 }
 
+function count() {
+  return hashtable.size;
+}
+
 export default {
   load,
   save,
   clear,
-  get count() {
-    return hashtable.size;
-  }
+  count
 };
