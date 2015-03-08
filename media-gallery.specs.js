@@ -1,16 +1,18 @@
 import mediaGallery from 'media-gallery';
 
 describe('In media gallery', () => {
-  beforeEach(() => {
-    mediaGallery.clear();
+  beforeEach((done) => {
+    mediaGallery.clear().then(done);
   });
 
   describe('When I call "count" after saving 2 files', () => {
     let count;
-    beforeEach(() => {
-      mediaGallery.save('somefile1.mp3', createRandomArrayBuffer(32));
-      mediaGallery.save('somefile2.mp3', createRandomArrayBuffer(32));
-      count = mediaGallery.count();
+    beforeEach((done) => {
+      mediaGallery.save('somefile1.mp3', createRandomArrayBuffer(32))
+        .then(() => mediaGallery.save('somefile2.mp3', createRandomArrayBuffer(32)))
+        .then(() => mediaGallery.count())
+        .then(c => count = c)
+        .then(done);
     });
     it('should return 2', () => {
       expect(count).toBe(2);
@@ -19,11 +21,13 @@ describe('In media gallery', () => {
 
   describe('When I call "clear" after saving 2 files', () => {
     let count;
-    beforeEach(() => {
-      mediaGallery.save('somefile1.mp3', createRandomArrayBuffer(32));
-      mediaGallery.save('somefile2.mp3', createRandomArrayBuffer(32));
-      mediaGallery.clear();
-      count = mediaGallery.count();
+    beforeEach((done) => {
+      mediaGallery.save('somefile1.mp3', createRandomArrayBuffer(32))
+        .then(() => mediaGallery.save('somefile2.mp3', createRandomArrayBuffer(32)))
+        .then(() => mediaGallery.clear())
+        .then(() => mediaGallery.count())
+        .then(c => count = c)
+        .then(done);
     });
     it('should have a count of 0', () => {
       expect(count).toBe(0);
@@ -33,9 +37,11 @@ describe('In media gallery', () => {
   describe('When I call "save" with a file name and reload the buffer', () => {
     let inputArrayBuffer = createRandomArrayBuffer(32);
     let outputArrayBuffer;
-    beforeEach(() => {
-      mediaGallery.save('somefile.mp3', inputArrayBuffer);
-      outputArrayBuffer = mediaGallery.load('somefile.mp3');
+    beforeEach((done) => {
+      mediaGallery.save('somefile.mp3', inputArrayBuffer)
+        .then(() => mediaGallery.load('somefile.mp3'))
+        .then(buffer => outputArrayBuffer = buffer)
+        .then(done);
     });
     it('should return the same data', () => {
       expect(areEqual(inputArrayBuffer, outputArrayBuffer)).toBe(true);
@@ -44,8 +50,10 @@ describe('In media gallery', () => {
 
   describe('When I call "load" with a file name that does not exist', () => {
     let arrayBuffer;
-    beforeEach(() => {
-      arrayBuffer = mediaGallery.load('somefile.mp3');
+    beforeEach((done) => {
+      mediaGallery.load('somefile.mp3')
+        .then(buffer => arrayBuffer = buffer)
+        .then(done);
     });
     it('should return undefined', () => {
       expect(arrayBuffer).toBeUndefined();
